@@ -1,0 +1,3 @@
+---
+- name: import archive signing key
+  command: apt-key adv --keyserver keyserver.ubuntu.com --recv-key 5243CDED
