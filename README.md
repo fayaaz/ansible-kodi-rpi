@@ -17,13 +17,9 @@ Set Kodi to launch on startup:
     - hosts: raspberrypi
       sudo: yes
       roles:
-       - { role: kodi, auto_start: 1 }
+       - { role:kodi, auto_start: 1 }
 
 Use ```sudo: yes``` if needed
-
-## Post Install
-
-Reboot the pi for auto startup, or run ```kodi``` from the terminal/SSH.
 
 ## License
 
