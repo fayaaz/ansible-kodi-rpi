@@ -5,6 +5,7 @@
 
 - name: Install kodi
   apt: name=kodi update_cache=yes state=present force=yes
+  notify: start the kodi service
 
 - name: Add pi to groups
   user: name=pi state=present groups={{ item }} append=yes
@@ -24,3 +25,4 @@
 
 - name: make kodi run as user pi and set default startup
   template: src=kodi_default.j2 dest=/etc/default/kodi owner=root group=root mode=0644
+  notify: start the kodi service

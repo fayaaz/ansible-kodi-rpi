@@ -1,3 +1,6 @@
 ---
 - name: import archive signing key
   command: apt-key adv --keyserver keyserver.ubuntu.com --recv-key 5243CDED
+
+- name: start the kodi service
+  command: service kodi restart

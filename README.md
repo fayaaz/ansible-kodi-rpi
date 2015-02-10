@@ -4,7 +4,7 @@ Installs Kodi on Raspbian
 
 ## Requirements
 
-Raspberry Pi running Raspbian
+Raspberry Pi running Raspbian (Kodi runs much better on the Raspberry Pi 2!)
 
 ## Role Variables
 
