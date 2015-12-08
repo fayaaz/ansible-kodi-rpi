@@ -1,14 +1,14 @@
 ---
 - name: add kodi repo
-  apt_repository: repo='deb http://archive.mene.za.net/raspbian wheezy contrib' state=present
+  apt_repository: repo='deb http://archive.mene.za.net/raspbian {{ansible_distribution_release}} contrib' state=present
   notify: import archive signing key
 
 - name: Install kodi
-  apt: name=kodi update_cache=yes state=present force=yes
+  apt: name=kodi update_cache=yes state=latest force=yes
   notify: start the kodi service
 
 - name: Add pi to groups
-  user: name=pi state=present groups={{ item }} append=yes
+  user: name=kodi state=present groups={{ item }} append=yes
   with_items:
     - audio
     - video
@@ -23,6 +23,6 @@
 - name: update udev rules
   copy: src=input_udev.conf dest=/etc/udev/rules.d/99-input.rules owner=root group=root mode=0644
 
-- name: make kodi run as user pi and set default startup
+- name: make kodi run as user kodi and set default startup
   template: src=kodi_default.j2 dest=/etc/default/kodi owner=root group=root mode=0644
   notify: start the kodi service
